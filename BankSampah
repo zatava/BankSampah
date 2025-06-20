@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistem Informasi Bank Sampah Kembang Hurip</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+  
+    :root {
+      --color-primary: #065f46;
+      --color-text: #000000;
+      --color-secondary: #065f46;
+      --color-text: #000000;
+      --color-bg: #065f46;
+      --color-bg2: #065f46;
+      --color-card-bg: #ffffff;
+      --shadow-light: rgba(0, 0, 0, 0.05);
+      --radius: 0.75rem;
+      --max-content-width: 1200px;
+    }
+  
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: 
+       
+        url('https://raw.githubusercontent.com/zatava/TugasUas/refs/heads/main/WhatsApp%20Image%202025-05-16%20at%2019.46.47_bf194195.jpg'); /* Gambar */
+      color: var(--color-text);
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    h1,h2,h3,h4 {
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+    }
+   
+    .container {
+      max-width: var(--max-content-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+   
+    section {
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+      position: relative;
+    }
+    .section-content {
+      background-color: var(--color-card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px var(--shadow-light);
+      padding: 2.5rem 3rem;
+    }
+    section::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 3rem;
+      width: 180px;
+      height: 180px;
+      background: url('https://raw.githubusercontent.com/zatava/TugasUas/refs/heads/main/sm_5afac97725683.jpg') no-repeat center center;
+      background-size: contain;
+      opacity: 0.08;
+      transform: translateY(-50%);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    @media (max-width: 767.98px) {
+      section::before {
+        display: none;
+      }
+    }
+    section[id] {
+      scroll-margin-top: 80px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: rgb(65, 231, 5);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 5px 15px var(--shadow-light);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      color: var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 12px 30px rgba(6,95,70,0.25);
+      transform: translateY(-6px);
+      outline: none;
+    }
+    .card h3 {
+      margin-bottom: 0.75rem;
+    }
+    .card p {
+      flex-grow: 1;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 0;
+    }
+    .btn-cta {
+      background-color: var(--color-primary);
+      color: rgb(47, 233, 5);
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.25rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      display: inline-block;
+      user-select: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-cta:hover,
+    .btn-cta:focus {
+      background-color: var(--color-secondary);
+      transform: scale(1.05);
+      outline: none;
+      text-decoration: none;
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: var(--color-text);
+    }
+    thead {
+      background: var(--color-primary);
+      color: white;
+      font-weight: 700;
+    }
+    thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    tbody tr:nth-child(even) {
+      background: var(--color-card-bg);
+    }
+    tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--shadow-light);
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: none;
+      color: var(--color-secondary);
+    }
+    header {
+      text-align: left;
+      padding: 2rem 1rem;
+      color: black;
+      text-size-adjust: 10;
+      font-size: 0rem;
+      user-select: none;
+      margin-top: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: black;
+      font-size: 0.9rem;
+      user-select: none;
+      background: var(--color-bg);
+      margin-top: auto;
+    }
+.navbar-brand {
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.04em;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" ></nav>
+    <div class="container">
+      <header>
+      <a class="navbar-brand" href="index.html">Bank Sampah Kembang Hurip</a>
+      </header>
+    </div>
+  <main class="container" role="main" aria-label="Sistem Informasi Bank Sampah">
+    <section id="beranda" tabindex="0" aria-labelledby="beranda-title">
+      <div class="section-content" >
+        <h1 id="beranda-title">Selamat Datang di Sistem Informasi Bank Sampah Kembang Hurip</h1>
+        <p>
+          Sistem digital ini memudahkan Anda dalam pengelolaan sampah anorganik dengan transparansi,
+          efisiensi, dan keberlanjutan. Bergabunglah untuk berkontribusi dalam menjaga kebersihan lingkungan sekaligus mendapatkan manfaat ekonomi dari sampah Anda.
+        </p>
+        <a href="#kontak" class="btn-cta">Hubungi Kami</a>
+      </div>
+    </section>
+    <section id="visimisi" tabindex="0" aria-labelledby="visimisi-title">
+      <div class="section-content">
+        <h2 id="visimisi-title">Visi & Misi</h2>
+        <div>
+          <h3>Visi</h3>
+          <p>
+            Menjadikan Bank Sampah Kembang Hurip sebagai wadah komunitas warga yang peduli terhadap kelestarian linkungan juga berupaya meningkatkan kesejahtaran dengan lingkungan yang bersih dan sehat.
+          </p>
+        </div>
+        <div>
+          <h3>Misi</h3>
+          <ul>
+            <li>Meningkatkan partisipasi aktif masyarakat dalam pengelolaan sampah anorganik.</li>
+            <li>Menyediakan platform sistem informasi yang transparan dan mudah digunakan.</li>
+            <li>Mengedukasikan masyarakat warga Tanjung Hurip khususnya dalam pengolahan sampah dengan kegiatan mendaur ulang sampah, kerajinan tangan dari sampah anorganik.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="tentang" tabindex="0" aria-labelledby="tentang-title">
+      <div class="section-content">
+        <h2 id="tentang-title">Tentang Bank Sampah Dan Peresmian Bank Sampah di Kembang Hurip </h2>
+        <p>
+          Peresmian Bank Sampah Di Kembang Hurip
+          Pada Minggu, tanggal 29 September 2019, telah diadakan kegiatan pembentukan Bank Sampah Kembang Hurip di wilayah RW 04, Tanjung Hurip. Kegiatan ini disetujui oleh warga RW 04, termasuk Ketua RT, Ketua RW, serta tokoh masyarakat setempat. Tujuan pembentukan bank sampah ini adalah sebagai upaya pengelolaan sampah masyarakat secara lebih baik dan berkelanjutan.
+          <p>
+            Menurut Bpk. H Sutoyon
+          </p>
+           Bank Sampah adalah sebuah sistem atau tempat di mana masyarakat bisa menyetorkan sampah yang telah dipilah (seperti plastik, kertas, logam, dan lain-lain), lalu mendapatkan imbalan berupa uang atau tabungan. Konsepnya mirip dengan bank keuangan, tetapi yang disetorkan bukan uang, melainkan sampah yang memiliki nilai jual.
+           Menurut Bpk H. Sutoyon selaku pengelola Bank Sampah adalah program pemerintah Kota Tasikmalaya, regulasinya adalah Undang-Undang No. 8 tahun 2008 Bank sampah itu adalah program nasional, kemudian dinamanya oleh daerah dalam rangka meningkatkan pengurangan sampah di sumber. Jadi definisi pengurangan sampah di sumber itu adalah terkurangnya sampah yang dikelola oleh BNSLH dibantu oleh masyarakat di tingkat RT/RW. Bentuknya adalah pengangkutan, pemilahan, pemanfaatan, atau daur ulang.
+        </p>
+
+      </div>
+    </section>
+    <section id="laporan" tabindex="0" aria-labelledby="laporan-title">
+      <div class="section-content">
+        <h2 id="laporan-title">Laporan Transaksi Sampah</h2>
+        <p>Berikut adalah laporan terbaru dari transaksi Data Sampah Terpilah,Organik,Residu/KG dari Januari – Oktober 2024:</p>
+        <table aria-describedby="laporan-title">
+          <thead>
+            <tr>
+              <th scope="col">Bulan</th>
+              <th scope="col">Residu</th>
+              <th scope="col">Organik</th>
+              <th scope="col">Terpilah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Januari</td>
+              <td>12</td>
+              <td>10</td>
+              <td>498</td>
+            </tr>
+            <tr>
+              <td>Febuari</td>
+              <td>15</td>
+              <td>8</td>
+              <td>491</td>
+            </tr>
+            <tr>
+              <td>Maret</td>
+              <td>10</td>
+              <td>7</td>
+              <td>480</td>
+            </tr>
+            <tr>
+              <td>April</td>
+              <td>10</td>
+              <td>7</td>
+              <td>669</td>
+            </tr>
+            <tr>
+              <td>Mei</td>
+              <td>15</td>
+              <td>12</td>
+              <td>460</td>
+            </tr>
+            <tr>
+              <td>Juni</td>
+              <td>15</td>
+              <td>10</td>
+              <td>590</td>
+            </tr>
+            <tr>
+              <td>Juli</td>
+              <td>17</td>
+              <td>8</td>
+              <td>489</td>
+            </tr>
+            <tr>
+              <td>Agustus</td>
+              <td>17</td>
+              <td>6</td>
+              <td>525</td>
+            </tr>
+            <tr>
+              <td>September</td>
+              <td>13</td>
+              <td>9</td>
+              <td>636</td>
+            </tr>
+            <tr>
+              <td>Oktober</td>
+              <td>16</td>
+              <td>10</td>
+              <td>587</td>
+            </tr>
+            <tr>
+              <td>Jumlah</td>
+              <td>139</td>
+              <td>87</td>
+              <td>5422</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="pendaftaran" tabindex="0" aria-labelledby="pendaftaran-title">
+  <div class="section-content">
+    <h2 id="pendaftaran-title">Pendaftaran Anggota</h2>
+<form id="form-pendaftaran" action="https://script.google.com/macros/s/AKfycbwDoxCmL70t1-dX6KyXe1Rn3drx0-O2UfinDLcL8wpvXG9ex_oVaNP49mpl72x6HJ08Ug/exec" method="POST">
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama Lengkap</label>
+    <input type="text" class="form-control" id="nama" name="nama" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label for="telepon" class="form-label">Nomor Telepon</label>
+    <input type="tel" class="form-control" id="telepon" name="telepon" required>
+  </div>
+  <div class="mb-3">
+    <label for="alamat" class="form-label">Alamat</label>
+    <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+  </div>
+  <button type="submit" class="btn-cta">Daftar</button>
+</form>  </div>
+</section>
+<main role="main" aria-label="Kontak Bank Sampah">
+    <article>
+    <section id="kontak" tabindex="0" aria-labelledby="kontak-title">
+      <div class="section-content">
+        <h2 id="kontak-title">Kontak Kami</h2>
+        <p>Untuk informasi lebih lanjut, silakan hubungi kami:</p>
+         <p>Dan berikan pendapat anda pada tautan dibawah ini:</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8YHLrXNzX5wZMIN25CUN4DtXIgP32SzuK58XEmLkueUGiCA/viewform?usp=sharing&ouid=108565970348037858109" target="_blank">Kunjungi Pendapat</a>
+        <ul>
+          <li>Email: <a href="https://myaccount.google.com/?utm_source=chrome-profile-chooser&pli=1">sendysetyawan842@gmail.com</a></li>
+          <li>Telepon: <a href="tel:+6281234567890">+628986762055</a></li>
+          <li>Alamat: Jl. Kembang Hurip No.4, Kota Tasikmalaya,Jawa Barat, Indonesia</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Bank Sampah Kembang Hurip.
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
